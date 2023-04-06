@@ -63,10 +63,11 @@ body {
     transform: rotateY(180deg);
   }
 
-.carta:hover .verso {
+.vira-verso {
     transform: rotateY(0deg);
-  }
+}
 
-.carta:hover .frente {
+.vira-frente {
     transform: rotateY(-180deg);
-  }
+}
+
