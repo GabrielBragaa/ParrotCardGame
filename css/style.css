@@ -26,7 +26,6 @@ body {
 .deck {
     width: 1500px;
     height: 600px;
-    background-color: aqua;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -63,11 +62,11 @@ body {
     transform: rotateY(180deg);
   }
 
-.vira-verso {
+.virada .verso {
     transform: rotateY(0deg);
 }
 
-.vira-frente {
+.virada .frente {
     transform: rotateY(-180deg);
 }
 
