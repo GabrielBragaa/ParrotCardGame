@@ -1,7 +1,7 @@
 const imagens = ['<img src="./img/bobrossparrot.gif" alt=""></img>', '<img src="./img/explodyparrot.gif" alt=""></img>', '<img src="./img/fiestaparrot.gif" alt=""></img>', 
 '<img src="./img/metalparrot.gif" alt=""></img>', '<img src="./img/revertitparrot.gif" alt=""></img>', '<img src="./img/tripletsparrot.gif" alt=""></img>', 
 '<img src="./img/unicornparrot.gif" alt=""></img>'];
-let cartasViradas = [], imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0;
+let cartasViradas = 0, imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0;
 
 function qtdCarta() {
     const deck = document.querySelector('.deck');
@@ -26,6 +26,7 @@ function qtdCarta() {
 function virarCarta(carta) {
     if ( primeiraCarta === undefined || segundaCarta === undefined){
         carta.classList.add('virada');
+        cartasViradas++;
         if (primeiraCarta === undefined) {
             primeiraCarta = carta;
         } else if (segundaCarta === undefined) {
@@ -37,7 +38,8 @@ function virarCarta(carta) {
                     resetCarta();
                 } 
                 if (pontos === qtd/2) {
-                    alert('Você ganhou em X jogadas!')
+                    alert(`Você ganhou em ${cartasViradas} jogadas!`)
+                    console.log(cartasViradas);
                 }
             }else {
                 setTimeout(voltaCarta, 1000);
