@@ -1,6 +1,6 @@
-const imagens = ['<img src="./img/bobrossparrot.gif" alt=""></img>', '<img src="./img/explodyparrot.gif" alt=""></img>', '<img src="./img/fiestaparrot.gif" alt=""></img>', 
-'<img src="./img/metalparrot.gif" alt=""></img>', '<img src="./img/revertitparrot.gif" alt=""></img>', '<img src="./img/tripletsparrot.gif" alt=""></img>', 
-'<img src="./img/unicornparrot.gif" alt=""></img>'];
+const imagens = ['<img src="./img/bobrossparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/explodyparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/fiestaparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/metalparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/revertitparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/tripletsparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/unicornparrot.gif" alt="" data-test="face-up-image"></img>'];
 let cartasViradas = 0, imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0;
 
 function qtdCarta() {
@@ -19,7 +19,7 @@ function qtdCarta() {
     imgSelecionadas.sort(embaralha);
 
     for (let contador = 0; contador < qtd; contador++) {
-        deck.innerHTML += `<div class="carta" onclick="virarCarta(this)"><div class="face frente"><img src="./img/back.png" alt=""></div><div class="face verso">${imgSelecionadas[contador]}</div></div>`;
+        deck.innerHTML += `<div class="carta" onclick="virarCarta(this)" data-test="card"><div class="face frente"><img src="./img/back.png" alt="" data-test="face-down-image"></div><div class="face verso">${imgSelecionadas[contador]}</div></div>`;
     }
 }
 
