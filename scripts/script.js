@@ -1,11 +1,11 @@
 const imagens = ['<img src="./img/bobrossparrot.gif" alt=""></img>', '<img src="./img/explodyparrot.gif" alt=""></img>', '<img src="./img/fiestaparrot.gif" alt=""></img>', 
 '<img src="./img/metalparrot.gif" alt=""></img>', '<img src="./img/revertitparrot.gif" alt=""></img>', '<img src="./img/tripletsparrot.gif" alt=""></img>', 
 '<img src="./img/unicornparrot.gif" alt=""></img>'];
-let cartasViradas = [], imgSelecionadas = [], primeiraCarta, segundaCarta;
+let cartasViradas = [], imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0;
 
 function qtdCarta() {
     const deck = document.querySelector('.deck');
-    let qtd = prompt('Com quantas cartas quer jogar?');
+    qtd = prompt('Com quantas cartas quer jogar?');
     while (qtd < 4 || qtd > 14 || qtd % 2 !== 0) {
         qtd = prompt('Com quantas cartas quer jogar?');
     } 
@@ -24,7 +24,6 @@ function qtdCarta() {
 }
 
 function virarCarta(carta) {
-    cartasViradas.push(carta);
     if ( primeiraCarta === undefined || segundaCarta === undefined){
         carta.classList.add('virada');
         if (primeiraCarta === undefined) {
@@ -32,7 +31,14 @@ function virarCarta(carta) {
         } else if (segundaCarta === undefined) {
             segundaCarta = carta;
             if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
-                console.log('FOI')
+                if (pontos !== qtd/2) {    
+                    pontos++;
+                    console.log(pontos);
+                    resetCarta();
+                } 
+                if (pontos === qtd/2) {
+                    alert('Você ganhou em X jogadas!')
+                }
             }else {
                 setTimeout(voltaCarta, 1000);
             }
@@ -49,6 +55,11 @@ function virarCarta(carta) {
 
 function embaralha() { 
 	return Math.random() - 0.5; 
+}
+
+function resetCarta() {
+    primeiraCarta = undefined;
+    segundaCarta = undefined;
 }
 
 qtdCarta();
