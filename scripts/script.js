@@ -1,7 +1,7 @@
 const imagens = ['<img src="./img/bobrossparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/explodyparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/fiestaparrot.gif" alt="" data-test="face-up-image"></img>', 
 '<img src="./img/metalparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/revertitparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/tripletsparrot.gif" alt="" data-test="face-up-image"></img>', 
 '<img src="./img/unicornparrot.gif" alt="" data-test="face-up-image"></img>'];
-let cartasViradas = 0, imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0;
+let cartasViradas = 0, imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0, tempo = 1;
 
 function qtdCarta() {
     const deck = document.querySelector('.deck');
@@ -21,6 +21,7 @@ function qtdCarta() {
     for (let contador = 0; contador < qtd; contador++) {
         deck.innerHTML += `<div class="carta" onclick="virarCarta(this)" data-test="card"><div class="face frente"><img src="./img/back.png" alt="" data-test="face-down-image"></div><div class="face verso">${imgSelecionadas[contador]}</div></div>`;
     }
+    intervalo = setInterval(cronometro, 1000);
 }
 
 function virarCarta(carta) {
@@ -34,26 +35,25 @@ function virarCarta(carta) {
             if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
                 if (pontos !== qtd/2) {    
                     pontos++;
-                    console.log(pontos);
                     resetCarta();
                 } 
                 if (pontos === qtd/2) {
-                    alert(`Você ganhou em ${cartasViradas} jogadas!`)
-                    console.log(cartasViradas);
-                }
+                    alert(`Você ganhou em ${cartasViradas} jogadas! A duração do jogo foi de ${tempo - 1} segundos!`);
+                    clearInterval(intervalo);
+                } 
             }else {
                 setTimeout(voltaCarta, 1000);
             }
     }
-
-    function voltaCarta() {
-        primeiraCarta.classList.remove('virada');
-        segundaCarta.classList.remove('virada');
-        primeiraCarta = undefined;
-        segundaCarta = undefined;
-    }
 }
 }   
+
+function voltaCarta() {
+    primeiraCarta.classList.remove('virada');
+    segundaCarta.classList.remove('virada');
+    primeiraCarta = undefined;
+    segundaCarta = undefined;
+}
 
 function embaralha() { 
 	return Math.random() - 0.5; 
@@ -63,5 +63,12 @@ function resetCarta() {
     primeiraCarta = undefined;
     segundaCarta = undefined;
 }
+
+function cronometro() {
+    elemento = document.querySelector('.cronometro');
+    elemento.innerText = '';
+    elemento.innerText = tempo++;
+}
+
 
 qtdCarta();
