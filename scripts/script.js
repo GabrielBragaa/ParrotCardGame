@@ -80,7 +80,7 @@ function resetJogo() {
 }
 
 function reiniciaJogo() {
-    let resposta = prompt('Gostaria de reiniciar a partida?');
+    let resposta = prompt('Você gostaria de reiniciar a partida? (sim ou não)');
     while (resposta !== "sim" && resposta !== "não") {
         resposta = prompt('Gostaria de reiniciar a partida?');
     }
