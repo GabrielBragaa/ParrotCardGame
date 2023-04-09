@@ -40,8 +40,9 @@ function virarCarta(carta) {
                 if (pontos === qtd/2) {
                     alert(`Você ganhou em ${cartasViradas} jogadas! A duração do jogo foi de ${tempo - 1} segundos!`);
                     clearInterval(intervalo);
+                    reiniciaJogo();
                 } 
-            }else {
+            } else {
                 setTimeout(voltaCarta, 1000);
             }
     }
@@ -70,5 +71,28 @@ function cronometro() {
     elemento.innerText = tempo++;
 }
 
+function resetJogo() {
+    cartasViradas = 0;
+    imgSelecionadas = [];
+    pontos = 0;
+    tempo = 1;
+
+    const deck = document.querySelector('.deck');
+    deck.innerHTML = '';
+}
+
+function reiniciaJogo() {
+    let resposta = prompt('Gostaria de reiniciar a partida?');
+    while (resposta !== "sim" && resposta !== "não") {
+        resposta = prompt('Gostaria de reiniciar a partida?');
+    }
+    if (resposta === "sim") {
+            resetJogo();
+            resetCarta();
+            qtdCarta();
+    } else if (resposta === "não") {
+            document.querySelectorAll('.carta').removeAttribute('onclick');
+    }
+}
 
 qtdCarta();
