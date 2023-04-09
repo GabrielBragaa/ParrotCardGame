@@ -1,5 +1,9 @@
-const imagens = ['<img src="./img/bobrossparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/explodyparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/fiestaparrot.gif" alt="" data-test="face-up-image"></img>', 
-'<img src="./img/metalparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/revertitparrot.gif" alt="" data-test="face-up-image"></img>', '<img src="./img/tripletsparrot.gif" alt="" data-test="face-up-image"></img>', 
+const imagens = ['<img src="./img/bobrossparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/explodyparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/fiestaparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/metalparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/revertitparrot.gif" alt="" data-test="face-up-image"></img>', 
+'<img src="./img/tripletsparrot.gif" alt="" data-test="face-up-image"></img>', 
 '<img src="./img/unicornparrot.gif" alt="" data-test="face-up-image"></img>'];
 let cartasViradas = 0, imgSelecionadas = [], primeiraCarta, segundaCarta, pontos = 0, tempo = 1;
 
