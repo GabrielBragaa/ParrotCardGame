@@ -52,8 +52,7 @@ function virarCarta(carta) {
 function voltaCarta() {
     primeiraCarta.classList.remove('virada');
     segundaCarta.classList.remove('virada');
-    primeiraCarta = undefined;
-    segundaCarta = undefined;
+    resetCarta();
 }
 
 function embaralha() { 
